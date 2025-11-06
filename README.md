@@ -23,22 +23,18 @@ ________________________________________
 3. Features
 
 •	Emergency Vehicle Detection:
-
 Identifies the direction (N/E/S/W) of an approaching emergency vehicle.
 
 
 •	Automatic Signal Priority:
-
 Sets green light for the detected direction and red for all others.
 
 
 •	Normal Traffic Cycle:
-
 Runs a continuous signal loop when no emergency is present.
 
 
 •	Safe Shutdown:
-
 Ends operation after completing normal cycles when user exits.
 
 
@@ -51,23 +47,23 @@ ________________________________________
 4. Variables Used
    
 Variable Name	Purpose
-running	Controls the main while loop (system running state)
-n	Total number of road directions (4)
-i	Loop counter
-a	Array storing direction labels ["N", "S", "E", "W"]
-signalDirection	Stores user input for detected emergency direction
-registered	Stores input on whether emergency message was received
-distance	Distance of emergency vehicle from signal (in meters)
-sirenOn	Stores input if siren is ON (1/0)
-time	Used for countdown simulation of green light duration
+running	                          Controls the main while loop (system running state)
+n	                                Total number of road directions (4)
+i	                                Loop counter
+a	                                Array storing direction labels ["N", "S", "E", "W"]
+signalDirection                   Stores user input for detected emergency direction
+registered	                      Stores input on whether emergency message was received
+distance	                        Distance of emergency vehicle from signal (in meters)
+sirenOn	                          Stores input if siren is ON (1/0)
+time	                            Used for countdown simulation of green light duration
 ________________________________________
 5. Functions Used
 Function Name	Description
-emergencyMode()	Placeholder for emergency preemption logic
-normalCycle()	Placeholder for normal traffic light cycle
-Main loop	Executes user inputs, checks for emergency, and manages signal sequence
-For loops	For countdown, to exclude the selected direction after emergency
-If-else conditions	To identify an emergency based on sensors and collaborative data
+emergencyMode()	                  Placeholder for emergency preemption logic
+normalCycle()	                    Placeholder for normal traffic light cycle
+Main loop	                        Executes user inputs, checks for emergency, and manages signal sequence
+For loops	                        For countdown, to exclude the selected direction after emergency
+If-else conditions              	To identify an emergency based on sensors and collaborative data
 ________________________________________
 6. How It Works
    
@@ -105,10 +101,10 @@ o	if-else structures for logic control
 ________________________________________
 8. Challenges and Solutions
    
-Challenge	Solution
-Handling user inputs for direction and siren detection	Implemented clear conditional checks and input prompts
-Managing light cycles for multiple directions	Used array a[] to iterate through all directions efficiently
-Simulating time-based signal changes	Used countdown loop for time in range(60, 1) to represent 60-second green light duration
+Challenge	                                                           Solution
+Handling user inputs for direction and siren detection	             Implemented clear conditional checks and input prompts
+Managing light cycles for multiple directions	                       Used array a[] to iterate through all directions efficiently
+Simulating time-based signal changes	                               Used countdown loop for time in range(60, 1) to represent 60-second green light duration
 ________________________________________
  
 9. Future Improvements
