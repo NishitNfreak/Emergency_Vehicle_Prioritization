@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="PSAT PROJECT"/>
+        <attribute name="authors" value="NISHIT AGARWAL"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-11-06 10:23:38 PM"/>
+        <attribute name="created" value="TklTSElUIEFHQVJXQUw7REVYVEVSOzIwMjUtMTAtMjk7MDk6NTM6MDkgUE07Mjc1Nw=="/>
+        <attribute name="edited" value="TklTSElUIEFHQVJXQUw7REVYVEVSOzIwMjUtMTEtMDE7MDk6Mjc6MDIgUE07MjtOSVNISVQgQUdBUldBTDtERVhURVI7MjAyNS0xMC0yOTswOTo1MzowOSBQTTtQU0FUIFBST0pFQ1Q3Nzc3WzFdLmZwcmc7NzUzNQ=="/>
+        <attribute name="edited" value="TklTSElUIEFHQVJXQUw7REVYVEVSOzIwMjUtMTEtMDU7MDE6MzY6MDAgUE07Mjt5ZWFyMztFQ0VDTC1TWVM0OTsyMDI1LTA5LTEyOzA4OjMxOjM1IEFNOzVfQXJyYXkuZnByZzs2NjEw"/>
+        <attribute name="edited" value="TklTSElUIEFHQVJXQUw7REVYVEVSOzIwMjUtMTEtMDU7MDQ6MDM6NTggUE07MTtOSVNISVQgQUdBUldBTDtERVhURVI7MjAyNS0xMS0wNTswMzo0Mzo1MCBQTTs1NjU0"/>
+        <attribute name="edited" value="TklTSElUIEFHQVJXQUw7REVYVEVSOzIwMjUtMTEtMDY7MTA6MjM6MzggUE07MTI7MjkwMg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="distance, sirenOn, Time, n, i" type="Integer" array="False" size=""/>
+            <declare name="signalDirection, registered" type="String" array="False" size=""/>
+            <declare name="running" type="Boolean" array="False" size=""/>
+            <assign variable="running" expression="true"/>
+            <assign variable="n" expression="4"/>
+            <assign variable="i" expression="0"/>
+            <declare name="A" type="String" array="True" size="n"/>
+            <assign variable="A[0]" expression="&quot;N&quot;"/>
+            <assign variable="A[1]" expression="&quot;S&quot;"/>
+            <assign variable="A[2]" expression="&quot;E&quot;"/>
+            <assign variable="A[3]" expression="&quot;W&quot;"/>
+            <output expression="&quot;=== SMART EMERGENCY VEHICLE PRIORITY SYSTEM ===&quot;" newline="True"/>
+            <output expression="&quot;Sensors: RFID/IR modules detect siren &amp; distance automatically.&quot;" newline="True"/>
+            <while expression="running = true">
+                <output expression="&quot;Enter detected vehicle direction (N/E/S/W or X to exit): &quot;" newline="True"/>
+                <input variable="signalDirection"/>
+                <if expression="signalDirection==&quot;X&quot; || signalDirection==&quot;x&quot;">
+                    <then>
+                        <output expression="&quot;=== INITIATING NORMAL TRAFFIC CYCLE ===&quot;" newline="True"/>
+                        <for variable="i" start="0" end="3" direction="inc" step="1">
+                            <output expression="&quot;Direction &quot;&amp;A[i]&amp;&quot; &#8594; GREEN&quot;" newline="True"/>
+                            <output expression="&quot;Other directions &#8594; RED&quot;" newline="True"/>
+                            <output expression="&quot;(Signal ON for 60 seconds...)&quot;" newline="True"/>
+                        </for>
+                        <output expression="&quot;&#55357;&#57041; System shutting down safely.&quot;" newline="True"/>
+                        <assign variable="running" expression="false"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;Emergency message recieved ? (Yes/No)&quot;" newline="True"/>
+                        <input variable="registered"/>
+                        <output expression="&quot;Enter distance from signal (in meters): &quot;" newline="True"/>
+                        <input variable="distance"/>
+                        <output expression="&quot;Siren ON? (1 for Yes / 0 for No): &quot;" newline="True"/>
+                        <input variable="sirenOn"/>
+                        <if expression="(sirenOn=1) || (registered==&quot;Yes&quot;)||(registered==&quot;YES&quot;)">
+                            <then>
+                                <output expression="&quot; EMERGENCY VEHICLE DETECTED FROM &quot; &amp;signalDirection" newline="True"/>
+                                <output expression="&quot;Setting signal to GREEN &quot; &amp;signalDirection" newline="True"/>
+                                <output expression="&quot;ALL OTHER DIRECTIONS SET TO RED&quot;" newline="True"/>
+                                <output expression="&quot;STIMULATING GREEN LIGHT FOR 1 MINUTE&quot;" newline="True"/>
+                                <for variable="Time" start="60" end="1" direction="dec" step="1">
+                                    <output expression="&quot;&quot;&amp;Time" newline="True"/>
+                                </for>
+                                <output expression="&quot;Emergency cleared. Restoring normal cycle&quot;" newline="True"/>
+                                <for variable="i" start="0" end="3" direction="inc" step="1">
+                                    <if expression="A[i] != signalDirection">
+                                        <then>
+                                            <output expression="&quot;Direction &quot;&amp;A[i]&amp;&quot; &#8594; GREEN&quot;" newline="True"/>
+                                            <output expression="&quot;Other directions &#8594; RED&quot;" newline="True"/>
+                                            <output expression="&quot;(Signal ON for 60 seconds...)&quot;" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </for>
+                            </then>
+                            <else>
+                                <output expression="&quot;=== INITIATING NORMAL TRAFFIC CYCLE ===&quot;" newline="True"/>
+                                <for variable="i" start="0" end="3" direction="inc" step="1">
+                                    <output expression="&quot;Direction &quot;&amp;A[i]&amp;&quot; &#8594; GREEN&quot;" newline="True"/>
+                                    <output expression="&quot;Other directions &#8594; RED&quot;" newline="True"/>
+                                    <output expression="&quot;(Signal ON for 60 seconds...)&quot;" newline="True"/>
+                                </for>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+    <function name="EmergencyMode" type="Real" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="NormalCycle" type="Boolean" variable="0">
+        <parameters/>
+        <body/>
+    </function>
+</flowgorithm>
